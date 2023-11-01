@@ -8,11 +8,11 @@ public class CommandLineInterface {
 
         while (true) {
             System.out.println("--- Inventory Management System ---");
-            System.out.println("1. Add item.Item");
-            System.out.println("2. Remove item.Item");
+            System.out.println("1. Add item");
+            System.out.println("2. Remove item");
             System.out.println("3. Display Inventory");
-            System.out.println("4. Categorize item.Item");
-            System.out.println("5. Place order.Order");
+            System.out.println("4. Categorize item");
+            System.out.println("5. Place order");
             System.out.println("6. Quit");
             System.out.print("Enter your choice: ");
 

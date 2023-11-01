@@ -41,8 +41,8 @@ public class InventoryItem extends AbstractItem {
 
     @Override
     public String getItemDescription() {
-        return String.format(this.getItemID() + ", " + this.getName() + ", " + this.getCategory() + ", "
-                + this.getPrice() + ", " + this.getQuantity());
+        return String.format("Item id: " + this.getItemID() + ", " + "Name: " + this.getName() + ", " + "Category: " + this.getCategory()
+                + ", " + "Price: " + this.getPrice() + ", " + "Quantity: " + this.getQuantity());
     }
 
     @Override
