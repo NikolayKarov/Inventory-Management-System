@@ -51,10 +51,10 @@ public abstract class AbstractItem implements Item, Categorizable,
 
     public void handleBreakage() {
         if (breakable) {
-            System.out.println("item.Item " + name + " is broken. Handling breakage.");
+            System.out.println("Item " + name + " is broken. Handling breakage.");
 
         } else {
-            System.out.println("item.Item " + name + " is not breakable.");
+            System.out.println("Item " + name + " is not breakable.");
         }
     }
 
@@ -64,10 +64,10 @@ public abstract class AbstractItem implements Item, Categorizable,
 
     public void handleExpiration() {
         if (perishable) {
-            System.out.println("item.Item " + name + " has expired. Handling expiration.");
+            System.out.println("Item " + name + " has expired. Handling expiration.");
 
         } else {
-            System.out.println("item.Item " + name + " is not perishable.");
+            System.out.println("Item " + name + " is not perishable.");
         }
     }
 

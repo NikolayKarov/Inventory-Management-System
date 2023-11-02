@@ -35,15 +35,14 @@ public class InventoryManagement {
         CSVFileManager.saveItemToCSV(FILE_PATH, inventory);
     }
 
-
     public void removeItem() {
-       CSVFileManager.printInventory(CSVFileManager.getInventoryFromFile());
+        CSVFileManager.printInventory(CSVFileManager.getInventoryFromFile());
         CSVFileManager.removeItemFromCSV(FILE_PATH, id);
     }
 
     public void displayInventory() {
         System.out.println("--- Display Inventory ---");
-       CSVFileManager.printInventory(CSVFileManager.getInventoryFromFile());
+        CSVFileManager.printInventory(CSVFileManager.getInventoryFromFile());
     }
 
     public void categorizeItem() {
@@ -52,7 +51,6 @@ public class InventoryManagement {
         System.out.print("Item ID to categorize: ");
         int itemID = scanner.nextInt();
         scanner.nextLine();
-
 
         for (InventoryItem item : CSVFileManager.getInventoryFromFile()) {
             if (item.getItemID() == itemID) {
@@ -134,7 +132,6 @@ public class InventoryManagement {
         } else {
             System.out.println("Item not found. Please enter a valid item ID.");
         }
-
         return order;
     }
 
