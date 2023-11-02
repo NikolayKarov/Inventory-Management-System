@@ -1,6 +1,8 @@
 package item;
 
-public class GroceryItem extends InventoryItem {
+import itemtype.Perishable;
+
+public class GroceryItem extends InventoryItem implements Perishable {
     private double weight;
 
 

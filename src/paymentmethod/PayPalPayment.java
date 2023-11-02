@@ -14,6 +14,12 @@ public class PayPalPayment implements PaymentMethod {
         this.emailAccount = accountEmail;
     }
 
+    /* This method is required to implement the PaymentMethod interface.
+    It attempts to authorize a payment for a specified amount using the PayPal account email address.
+    It checks the validity of the email address.
+    If the email address is in a valid format, it prints "Payment authorization successful!"
+    to indicate a successful authorization. Otherwise, it provides an error message to indicate
+    that the email address is invalid. */
     @Override
     public void authorizePayment(double amount) {
         if (isValidEmail(emailAccount)) {
@@ -23,6 +29,8 @@ public class PayPalPayment implements PaymentMethod {
         }
     }
 
+    /* A private method that validates the email account. It uses regular expressions to check whether the provided email address matches a valid email format.
+    It returns true if the email is in a valid format and false if it is not. */
     private boolean isValidEmail(String emailAccount) {
         String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
         Pattern pattern = Pattern.compile(emailPattern);

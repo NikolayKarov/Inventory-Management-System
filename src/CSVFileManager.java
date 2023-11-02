@@ -9,6 +9,9 @@ public class CSVFileManager {
 
     private static final String FILE_PATH = "D:\\Nikolay\\InventoryManagementSystem\\src\\resources\\inventory.csv";
 
+    /* This method takes a filename and a list of InventoryItem objects as input and saves the item data to a CSV file.
+    It uses a FileWriter to write the item descriptions to the file.
+    If an error occurs during file writing, it will print an error message. */
     public static void saveItemToCSV(String fileName, List<InventoryItem> items) {
         try (FileWriter writer = new FileWriter((fileName))) {
             for (InventoryItem item : items) {
@@ -19,6 +22,9 @@ public class CSVFileManager {
         }
     }
 
+    /* This method allows removing an item from the CSV file based on its ID.
+    It reads the CSV file, prompts the user for the ID to remove, and then updates the file by excluding
+    the item with the specified ID. It also provides error handling for file I/O issues. */
     public static void removeItemFromCSV(String fileName, int id) {
         List<String> lines = new ArrayList<>();
 
@@ -64,6 +70,9 @@ public class CSVFileManager {
         System.out.println("Item with ID " + idToRemove + " has been removed successful !");
     }
 
+    /* his method reads and prints the content of the CSV file to the console.
+    It splits each line into fields using a comma as the delimiter and prints each field.
+    It handles file I/O exceptions and prints error messages if necessary. */
     public static void readFromCSV(String fileName) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH));
@@ -81,6 +90,9 @@ public class CSVFileManager {
         }
     }
 
+    /* This method reads the CSV file and returns a list of InventoryItem objects containing the inventory data.
+     It parses each line from the CSV file into item attributes and creates InventoryItem instances,
+     adding them to a list. Any file I/O errors are handled with error messages. */
     public static List<InventoryItem> getInventoryFromFile() {
         List<InventoryItem> inventoryItems = new ArrayList<>();
         try {
@@ -104,6 +116,9 @@ public class CSVFileManager {
         return inventoryItems;
     }
 
+    /* This method takes a list of InventoryItem objects and prints their descriptions to the console.
+    It first retrieves the inventory data from the CSV file using getInventoryFromFile() and then prints each item's description.
+    This method provides a convenient way to display the current inventory */
     public static void printInventory(List<InventoryItem> inventory) {
         inventory = getInventoryFromFile();
         for (InventoryItem inventoryItem : inventory) {

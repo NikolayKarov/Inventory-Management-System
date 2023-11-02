@@ -13,6 +13,10 @@ public class InventoryManagement {
     private static final String FILE_PATH = "D:\\Nikolay\\InventoryManagementSystem\\src\\resources\\inventory.csv";
     private static int id;
 
+    /* This method allows the user to add a new item to the inventory.
+     It prompts the user for item details such as name, category, price, and quantity,
+     and then creates an InventoryItem object to add to the inventory list.
+     It also saves the updated inventory to a CSV file. */
     public void addItem() {
         System.out.println("--- Adding new item to the inventory ---");
         System.out.print("Item name: ");
@@ -35,16 +39,24 @@ public class InventoryManagement {
         CSVFileManager.saveItemToCSV(FILE_PATH, inventory);
     }
 
+    /* This method allows the user to remove an item from the inventory.
+    It displays the current inventory and prompts the user to enter the ID of the item to be removed.
+    The selected item is then removed from the inventory, and the inventory list is saved to the CSV file. */
     public void removeItem() {
         CSVFileManager.printInventory(CSVFileManager.getInventoryFromFile());
         CSVFileManager.removeItemFromCSV(FILE_PATH, id);
     }
 
+    /* This method displays the current inventory by reading the data from the CSV file
+    and printing it to the console. */
     public void displayInventory() {
         System.out.println("--- Display Inventory ---");
         CSVFileManager.printInventory(CSVFileManager.getInventoryFromFile());
     }
 
+    /* This method allows the user to categorize an item in the inventory.
+    It displays the current inventory, prompts the user to enter the ID of the item they want to categorize,
+    and then allows them to change the category of the selected item. */
     public void categorizeItem() {
         System.out.println("--- Categorize item ---");
         CSVFileManager.printInventory(CSVFileManager.getInventoryFromFile());
@@ -64,6 +76,10 @@ public class InventoryManagement {
         System.out.println("Item not found with ID " + itemID);
     }
 
+    /*  This method allows the user to place orders. It provides options to create a new order,
+    view existing orders, and quit the order management system.
+    Users can add items to an order, calculate the total cost of the order, and make a payment.
+    Successful orders are stored in a list of orders */
     public void placeOrder() {
         List<Order> orders = new ArrayList<>();
 
@@ -103,6 +119,8 @@ public class InventoryManagement {
         }
     }
 
+    /* A private method to create a new order by selecting items from the inventory.
+     It checks the availability of items and adds them to the order. */
     private static Order makeOrder(List<InventoryItem> inventory) {
         Scanner scanner = new Scanner(System.in);
         Order order = new Order();
@@ -135,6 +153,8 @@ public class InventoryManagement {
         return order;
     }
 
+    /* A private method for creating a payment for an order. It prompts the user to enter the payment amount and payment method.
+     It checks if the payment amount is sufficient */
     private static Payment createPayment(double amount) {
         Scanner scanner = new Scanner(System.in);
 
@@ -153,6 +173,7 @@ public class InventoryManagement {
         }
     }
 
+    /* A private method to find an item in the inventory by its ID. */
     private static InventoryItem findItemInInventory(List<InventoryItem> inventory, int itemID) {
         for (InventoryItem item : inventory) {
             if (item.getItemID() == itemID) {
@@ -162,6 +183,7 @@ public class InventoryManagement {
         return null;
     }
 
+    /* A private method to display a list of orders, including order IDs and total costs. */
     private static void viewOrders(List<Order> orders) {
         if (orders.isEmpty()) {
             System.out.println("No orders placed yet.");
